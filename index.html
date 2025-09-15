@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSM X µLearn | Launching Today!</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Embedded CSS for animations and base styles -->
+    <style>
+      body {
+        /* Set base font and a deep blue background matching the space theme */
+        font-family: 'Roboto', sans-serif;
+        background-color: #0F172A;
+        background-image: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        color: #e2e8f0; /* Default text color (slate-200) */
+      }
+
+      /* Heading font */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+      }
+      
+      /* --- ANIMATED BACKGROUND STYLES --- */
+      .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+      }
+
+      @keyframes move-twink-back {
+          from {background-position:0 0;}
+          to {background-position:-10000px 5000px;}
+      }
+
+      .stars, .twinkling {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .stars {
+        background: #000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+      }
+
+      .twinkling {
+        background: transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+        animation: move-twink-back 250s linear infinite;
+      }
+
+      /* --- SHOOTING STAR ANIMATION --- */
+      .shooting-star {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 2px;
+        background: linear-gradient(-45deg, rgba(16, 185, 129, 0.8), rgba(255, 255, 255, 0));
+        border-radius: 999px;
+        filter: drop-shadow(0 0 6px rgba(16, 185, 129, 1));
+        animation: tail 5s ease-in-out infinite, shooting 5s ease-in-out infinite;
+      }
+
+      @keyframes tail {
+        0% { width: 0; }
+        30% { width: 100px; }
+        100% { width: 0; }
+      }
+
+      @keyframes shooting {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(300px); }
+      }
+
+      .shooting-star:nth-child(1) { top: 20%; left: -50%; animation-delay: 2.5s; }
+      .shooting-star:nth-child(2) { top: 60%; left: -20%; animation-delay: 5.8s; }
+      .shooting-star:nth-child(3) { top: 80%; left: -100%; animation-delay: 8.2s; }
+
+      /* --- CUSTOM BUTTON GLOW ANIMATION --- */
+      @keyframes pulse-glow {
+        0%, 16%, 100% {
+          transform: scale(1);
+          box-shadow: 0 0 10px rgba(16, 185, 129, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        8% {
+          transform: scale(1.015);
+          box-shadow: 0 0 20px rgba(16, 185, 129, 0.6), 0 0 40px rgba(16, 185, 129, 0.4);
+        }
+      }
+
+      /* --- ACCORDION TRANSITION STYLES --- */
+      .accordion-content {
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+      }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Container for all animated background elements -->
+    <div class="background-container">
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+      <div class="shooting-star"></div>
+    </div>
+    
+    <!-- Main application wrapper -->
+    <div class="relative z-10 flex flex-col flex-grow">
+      
+      <!-- Header -->
+      <header role="banner" class="absolute top-0 left-0 w-full p-6 lg:p-8">
+        <div class="container mx-auto text-center md:text-left">
+          <h1 class="text-lg md:text-xl font-bold text-white tracking-wider" style="font-family: 'Poppins', sans-serif;">
+            Seethi Sahib Memorial Polytechnic College Tirur
+          </h1>
+          <p class="text-sm text-slate-300">Department of Computer Engineering</p>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-grow flex flex-col items-center w-full px-6 pt-40 pb-20">
+        
+        <!-- Hero Section -->
+        <div id="hero-section" class="w-full max-w-4xl mx-auto bg-slate-800/20 backdrop-blur-sm border border-slate-500/30 rounded-2xl p-8 md:p-12 shadow-2xl transition-all duration-1000 ease-out text-center opacity-0 transform translate-y-8">
+          <h2 id="hero-headline" class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4 transition-opacity duration-700 ease-out opacity-0" style="font-family: 'Poppins', sans-serif;">
+            SSM X µLearn – Launching Today!
+          </h2>
+          <p id="hero-tagline" class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 transition-opacity duration-700 ease-out opacity-0">
+            Empowering rural communities, startups, and youth through innovative technology-driven solutions.
+          </p>
+          <div id="hero-button-container" class="transition-opacity duration-700 ease-out opacity-0">
+            <button id="cta-button" class="bg-[#10B981] text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg hover:bg-green-500 transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-500/50" style="animation: pulse-glow 6s infinite ease-in-out; box-shadow: 0 0 10px rgba(16, 185, 129, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);">
+              Join the Launch
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Accordion Section -->
+        <div id="projects-section" class="w-full max-w-4xl mx-auto mt-16 md:mt-24 transition-all duration-1000 ease-out opacity-0 transform translate-y-8">
+          <h3 class="text-3xl md:text-4xl font-bold text-white text-center mb-12" style="font-family: 'Poppins', sans-serif;">
+            Projects for Civil Society Connect 2025
+          </h3>
+          
+          <div class="bg-slate-800/20 backdrop-blur-sm border border-slate-500/30 rounded-2xl shadow-xl overflow-hidden">
+            <!-- Project #1 -->
+            <div class="border-b border-slate-500/30">
+              <button class="accordion-button w-full flex justify-between items-center text-left py-5 px-6 hover:bg-slate-700/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 rounded-sm" aria-expanded="false">
+                <div class="flex items-center gap-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a6 6 0 016.38 8.4 6 6 0 01-8.4-6.38l-4.26-4.26m5.84 2.56l-4.26-4.26a6 6 0 016.38-8.4 6 6 0 018.4 6.38-6 6 0 01-6.38 8.4z" /></svg>
+                  <h4 class="text-lg font-bold text-green-400" style="font-family: 'Poppins', sans-serif;">Project #1: 60 Tech Startups by Students</h4>
+                </div>
+                <svg class="chevron w-6 h-6 text-slate-300 transform transition-transform duration-300 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-content">
+                <div class="p-6 pt-0"><p class="text-slate-300 text-base">Empowers rural micro-entrepreneurs, Kudumbashree units, and grassroots innovators through digital branding, literacy, and online presence creation. By engaging students in real-world social entrepreneurship, the project bridges academia with community development while nurturing socially responsible, tech-savvy youth.</p></div>
+              </div>
+            </div>
+            <!-- Add other projects similarly -->
+             <!-- Project #2 -->
+            <div class="border-b border-slate-500/30">
+              <button class="accordion-button w-full flex justify-between items-center text-left py-5 px-6 hover:bg-slate-700/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 rounded-sm" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12A2.25 2.25 0 0020.25 14.25V3M3.75 21h16.5M12 3v18" /></svg>
+                      <h4 class="text-lg font-bold text-green-400" style="font-family: 'Poppins', sans-serif;">Project #2: Micro ERP Software</h4>
+                  </div>
+                  <svg class="chevron w-6 h-6 text-slate-300 transform transition-transform duration-300 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-content">
+                  <div class="p-6 pt-0"><p class="text-slate-300 text-base">For Small-Scale Industries and Kudumbashree entrepreneurs to enhance efficiency and growth developed by alumni startup incubated at SSM-TBI, ensuring local innovation & community empowerment.</p></div>
+              </div>
+            </div>
+            <!-- Project #3 -->
+            <div class="border-b border-slate-500/30">
+              <button class="accordion-button w-full flex justify-between items-center text-left py-5 px-6 hover:bg-slate-700/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 rounded-sm" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                      <h4 class="text-lg font-bold text-green-400" style="font-family: 'Poppins', sans-serif;">Project #3: SALT MANGO TREE Academy</h4>
+                  </div>
+                  <svg class="chevron w-6 h-6 text-slate-300 transform transition-transform duration-300 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-content">
+                  <div class="p-6 pt-0"><p class="text-slate-300 text-base">An English and Professional Grooming Academy under the CNET Centre for Need-Based Education & Training. It serves students, teachers, professionals, and the public, empowering them to re-enter career pathways with enhanced confidence and soft skills.</p></div>
+              </div>
+            </div>
+            <!-- Project #4 -->
+            <div class="border-b border-slate-500/30">
+              <button class="accordion-button w-full flex justify-between items-center text-left py-5 px-6 hover:bg-slate-700/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 rounded-sm" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z" /></svg>
+                      <h4 class="text-lg font-bold text-green-400" style="font-family: 'Poppins', sans-serif;">Project #4: Youth Empowerment through AI and Digital Skills</h4>
+                  </div>
+                  <svg class="chevron w-6 h-6 text-slate-300 transform transition-transform duration-300 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-content">
+                  <div class="p-6 pt-0"><p class="text-slate-300 text-base">Aligned with the UNESCO Mission 2025, this initiative is organized by student-alumni-faculty startups XENORA, LYSEIBUG, and INFINIO. It focuses on preparing young minds with future-ready digital skills and competencies for global opportunities.</p></div>
+              </div>
+            </div>
+            <!-- Project #5 -->
+            <div class="border-b border-slate-500/30">
+              <button class="accordion-button w-full flex justify-between items-center text-left py-5 px-6 hover:bg-slate-700/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 rounded-sm" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.354a15.056 15.056 0 01-4.5 0m3.75-2.354a15.056 15.056 0 01-4.5 0M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      <h4 class="text-lg font-bold text-green-400" style="font-family: 'Poppins', sans-serif;">Project #5: Design Thinking Outreach</h4>
+                  </div>
+                  <svg class="chevron w-6 h-6 text-slate-300 transform transition-transform duration-300 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-content">
+                  <div class="p-6 pt-0"><p class="text-slate-300 text-base">Aims to equip school students with essential 21st-century skills. Programs under Makerghat, Kutty Makers, YIP Saashtrapadham, and Olappambaram Students Innovation Club foster creativity, innovation, and hands-on experiential learning.</p></div>
+              </div>
+            </div>
+            <!-- Project #6 -->
+            <div class="border-b border-slate-500/30">
+              <button class="accordion-button w-full flex justify-between items-center text-left py-5 px-6 hover:bg-slate-700/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 rounded-sm" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
+                      <h4 class="text-lg font-bold text-green-400" style="font-family: 'Poppins', sans-serif;">Project #6: MDTC Campus Chapter</h4>
+                  </div>
+                  <svg class="chevron w-6 h-6 text-slate-300 transform transition-transform duration-300 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-content">
+                  <div class="p-6 pt-0"><p class="text-slate-300 text-base">Raises awareness about the critical importance of trauma care among students, youth, and the wider community. The mission, “Trauma Care in Every Home,” aims to ensure that every household in Tirur is equipped with trauma care-literate individuals.</p></div>
+              </div>
+            </div>
+            <!-- Project #7 -->
+            <div class="border-b-0"> <!-- No border on the last item -->
+              <button class="accordion-button w-full flex justify-between items-center text-left py-5 px-6 hover:bg-slate-700/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500/50 rounded-sm" aria-expanded="false">
+                  <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+                      <h4 class="text-lg font-bold text-green-400" style="font-family: 'Poppins', sans-serif;">Project #7: Village Adoption for Sustainable Development</h4>
+                  </div>
+                  <svg class="chevron w-6 h-6 text-slate-300 transform transition-transform duration-300 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div class="accordion-content">
+                  <div class="p-6 pt-0"><p class="text-slate-300 text-base">Fosters local empowerment and social development in nearby Grama Panchayats. The project involves child and women's empowerment, GIS mapping, documentation of historic sites, and developing a tourism circuit. It promotes a culture of “earn while you learn" through Tourism Clubs, cultivating empowered, informed, and resilient communities.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Footer -->
+      <footer role="contentinfo" class="w-full p-6 lg:p-8 text-center mt-auto">
+        <div class="container mx-auto">
+          <p class="text-sm text-slate-400">
+            © 2025 SSM Polytechnic & µLearn | All Rights Reserved
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Vanilla JavaScript for Interactivity -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- Staggered Fade-in Animations ---
+        const heroSection = document.getElementById('hero-section');
+        const heroHeadline = document.getElementById('hero-headline');
+        const heroTagline = document.getElementById('hero-tagline');
+        const heroButtonContainer = document.getElementById('hero-button-container');
+        const projectsSection = document.getElementById('projects-section');
+
+        // Trigger animations with delays after page load
+        setTimeout(() => {
+          heroSection.classList.remove('opacity-0', 'translate-y-8');
+          setTimeout(() => heroHeadline.classList.remove('opacity-0'), 300);
+          setTimeout(() => heroTagline.classList.remove('opacity-0'), 500);
+          setTimeout(() => heroButtonContainer.classList.remove('opacity-0'), 700);
+          setTimeout(() => projectsSection.classList.remove('opacity-0', 'translate-y-8'), 1000);
+        }, 100);
+
+        // --- Accordion Logic ---
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        
+        accordionButtons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            // Find the content panel associated with the clicked button
+            const content = button.nextElementSibling;
+            const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+            // Close all other accordions first
+            accordionButtons.forEach((otherButton, otherIndex) => {
+              if (index !== otherIndex) {
+                otherButton.setAttribute('aria-expanded', 'false');
+                otherButton.nextElementSibling.style.maxHeight = null;
+                otherButton.nextElementSibling.style.opacity = '0';
+                otherButton.querySelector('.chevron').classList.remove('rotate-180');
+              }
+            });
+
+            // Toggle the clicked accordion
+            if (isOpen) {
+              button.setAttribute('aria-expanded', 'false');
+              content.style.maxHeight = null;
+              content.style.opacity = '0';
+              button.querySelector('.chevron').classList.remove('rotate-180');
+            } else {
+              button.setAttribute('aria-expanded', 'true');
+              content.style.maxHeight = content.scrollHeight + 'px';
+              content.style.opacity = '1';
+              button.querySelector('.chevron').classList.add('rotate-180');
+            }
+          });
+        });
+
+        // --- CTA Button Click ---
+        const ctaButton = document.getElementById('cta-button');
+        ctaButton.addEventListener('click', () => {
+          alert('Thank you for joining the launch! Stay tuned for more updates.');
+        });
+
+      });
+    </script>
+</body>
+</html>
